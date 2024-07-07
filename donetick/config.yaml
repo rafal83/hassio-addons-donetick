@@ -5,11 +5,11 @@ slug: Dontetick
 description: Simplify Tasks & Chores, Together.
 url: "https://github.com/donetick/addon-hassio/tree/main/donetick"
 arch:
-  - armhf
-  - armv7
+  # - armhf
+  # - armv7
   - aarch64
   - amd64
-  - i386
+  # - i386
 init: false
 map:
   - share:rw
@@ -17,4 +17,4 @@ options:
   message: "Hello world..."
 schema:
   message: "str?"
-image: "ghcr.io/home-assistant/{arch}-addon-example"
+image: "ghcr.io/donetick/{arch}-hassio-addons"
