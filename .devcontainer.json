@@ -1,7 +1,7 @@
 {
-  "name": "Example Home Assistant add-on repository",
-  "image": "ghcr.io/home-assistant/devcontainer:addons",
-  "appPort": ["7123:8123", "7357:4357"],
+  "name": "Donetick Addons",
+  "image": "ghcr.io/donetick/addons:latest",
+  "appPort": ["2021:2021", "2022:80"],
   "postStartCommand": "bash devcontainer_bootstrap",
   "runArgs": ["-e", "GIT_EDITOR=code --wait", "--privileged"],
   "remoteUser":"root",
