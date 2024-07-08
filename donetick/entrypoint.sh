@@ -22,6 +22,6 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 
 # Wait for both processes to exit
-wait $PID1 $PID2 $PID3
+wait $PID1 $PID2 
 
 echo "Both processes have completed."

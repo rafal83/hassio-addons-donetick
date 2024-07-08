@@ -21,7 +21,7 @@ WORKDIR /app/frontend
 # RUN npm ci
 
 RUN npm install
-# VITE_APP_API_URL=http://host.docker.internal:2021
+ENV VITE_APP_API_URL=/api
 RUN  npm run build
 
 
