@@ -3,7 +3,7 @@ name: Donetick Addon
 version: "0.0.1"
 slug: Dontetick
 description: Simplify Tasks & Chores, Together.
-url: "https://github.com/donetick/addon-hassio/tree/main/donetick"
+url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
 arch:
   # - armhf
   # - armv7
