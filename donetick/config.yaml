@@ -4,8 +4,6 @@ version: "0.0.2"
 slug: Dontetick
 description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
-startup: application
-webui: "http://[HOST]:[PORT]/my/chores"
 arch:
   # - armhf
   # - armv7
