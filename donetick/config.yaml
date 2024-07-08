@@ -17,4 +17,7 @@ options:
   message: "Hello world..."
 schema:
   message: "str?"
+ports:
+  80/tcp: 80
+  2021/tcp: 2021
 image: "ghcr.io/donetick/{arch}-hassio-addons"
