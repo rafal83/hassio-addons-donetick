@@ -4,10 +4,12 @@ version: "0.0.2"
 slug: Dontetick
 description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
+startup: application
+webui: "http://[HOST]:[PORT]/my/chores"
 arch:
   # - armhf
   # - armv7
-  - aarch64
+  # - aarch64
   - amd64
   # - i386
 init: false
@@ -21,4 +23,5 @@ ports:
   80/tcp: 80
   2021/tcp: 2021
 ingress_port: 80
+ingress: true
 image: "ghcr.io/donetick/{arch}-hassio-addons"
