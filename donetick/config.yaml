@@ -1,7 +1,7 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Donetick Addon
-version: "0.0.5"
-slug: Dontetick
+version: "0.0.6"
+slug: Donetick
 description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
 arch:
@@ -13,13 +13,9 @@ arch:
 init: false
 map:
   - share:rw
-options:
-  message: "Hello world..."
-schema:
-  message: "str?"
+
 ports:
-  80/tcp: 80
+  80/tcp: 8005
   2021/tcp: 2021
-ingress_port: 80
-ingress: true
+webui: http://[HOST]:[PORT:8005]
 image: "ghcr.io/donetick/{arch}-hassio-addons"
