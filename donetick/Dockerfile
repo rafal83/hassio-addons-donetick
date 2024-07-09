@@ -54,7 +54,6 @@ COPY --from=builder /app/core/config ./config
 
 RUN chmod +x ./donetick-core
 
-VOLUME /app
 # Expose ports
 EXPOSE 2021 80
 
