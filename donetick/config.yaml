@@ -16,7 +16,7 @@ map:
     read_only: False
     path: /data
 environment:
-  - DT_SQLITE_PATH: /data/donetick.db
+  DT_SQLITE_PATH: /data/donetick.db
 ports:
   80/tcp: 8005
   2021/tcp: 2021
