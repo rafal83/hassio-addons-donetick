@@ -1,42 +1,45 @@
-# ARG BUILD_FROM
-# FROM $BUILD_FROM
-
-FROM ghcr.io/home-assistant/amd64-base:3.15
-
-# Set working directory
+ARG BUILD_BACKEND_FROM
+FROM $BUILD_BACKEND_FROM AS builder
 WORKDIR /app
-
-# Install necessary packages
-RUN apk add --no-cache \
-    nginx \
-    git \
-    go \
-    musl-dev \
-    gcc \
-    sqlite-dev
-
-# Clone and build the Donetick core backend
-RUN git clone https://github.com/Donetick/core /app/core
+ENV CGO_ENABLED=1
+RUN apk --no-cache add gcc  musl-dev git musl-dev sqlite-dev 
+RUN apk add git
+RUN git clone https://github.com/Donetick/core
 WORKDIR /app/core
 RUN go mod download
-RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w" -buildvcs=false -o /app/donetick-core
+RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w " -buildvcs=false  -o /donetick-core 
 
-# Clone and build the Donetick frontend
+
+
+FROM node:18-alpine AS frontend
 WORKDIR /app
-RUN apk add --no-cache nodejs npm
-RUN git clone https://github.com/donetick/frontend /app/frontend
-WORKDIR /app/frontend
+RUN apk add --no-cache git  # Install git in the Node.js image
+RUN git clone https://github.com/donetick/frontend
+WORKDIR /app/frontend     
+
+# Install dependencies and build the frontend
+# RUN npm ci
+
 RUN npm install
 ENV VITE_APP_API_URL=/api
-RUN npm run build
+RUN  npm run build
+
+
+
+ARG BUILD_FROM
+FROM $BUILD_FROM 
+
+RUN apk add --no-cache \
+    nginx
 
 # Setup nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/html
-COPY /app/frontend/dist /usr/share/nginx/html
 
 # Copy the built Donetick core binary
-COPY /app/donetick-core /app
+COPY --from=builder /donetick-core /app/donetick-core
+COPY --from=builder /app/core/config /app/config
+COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
 
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
@@ -46,4 +49,4 @@ RUN chmod +x /app/entrypoint.sh
 EXPOSE 2021 80
 
 # Set the entrypoint script
-# CMD ["/app/entrypoint.sh"]
+CMD ["/app/entrypoint.sh"]
