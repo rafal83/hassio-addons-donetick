@@ -7,10 +7,10 @@
 # export VITE_APP_API_URL=http://host.docker.internal:2021
 
 # Read telegram token from addon config
-DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
+# DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 
-# Export telegram token
-export DONETICK_TELEGRAM_TOKEN
+# # Export telegram token
+# export DONETICK_TELEGRAM_TOKEN
 
 # Start donetick backend and save PID
 ./donetick-core &

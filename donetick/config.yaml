@@ -1,13 +1,13 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: Donetick Addon
-version: "0.0.20"
+version: "0.0.21"
 slug: Donetick
 description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
 arch:
   # - armhf
   # - armv7
-  - aarch64
+  # - aarch64
   - amd64
   # - i386
 init: false
