@@ -1,5 +1,7 @@
-ARG BUILD_BACKEND_FROM
-FROM $BUILD_BACKEND_FROM AS builder
+# ARG BUILD_FROM
+# FROM $BUILD_FROM
+
+FROM golang:1.22-alpine3.18 AS builder
 WORKDIR /app
 ENV CGO_ENABLED=1
 RUN apk --no-cache add gcc  musl-dev git musl-dev sqlite-dev 
@@ -9,6 +11,8 @@ WORKDIR /app/core
 RUN go mod download
 RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w " -buildvcs=false  -o /donetick-core 
 
+# ARG BUILD_FROM
+# FROM $BUILD_FROM
 
 
 FROM node:18-alpine AS frontend
@@ -26,8 +30,7 @@ RUN  npm run build
 
 
 
-ARG BUILD_FROM
-FROM $BUILD_FROM 
+FROM ghcr.io/home-assistant/amd64-base:3.15
 
 RUN apk add --no-cache \
     nginx
@@ -49,4 +52,4 @@ RUN chmod +x /app/entrypoint.sh
 EXPOSE 2021 80
 
 # Set the entrypoint script
-CMD ["/app/entrypoint.sh"]
+# CMD ["/app/entrypoint.sh"]
