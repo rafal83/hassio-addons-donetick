@@ -1,5 +1,7 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+# ARG BUILD_FROM
+# FROM $BUILD_FROM
+
+FROM ghcr.io/home-assistant/amd64-base:3.15
 
 # Set working directory
 WORKDIR /app
@@ -31,10 +33,10 @@ RUN npm run build
 # Setup nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/html
-COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
+COPY /app/frontend/dist /usr/share/nginx/html
 
 # Copy the built Donetick core binary
-COPY --from=builder /app/donetick-core /app
+COPY /app/donetick-core /app
 
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
