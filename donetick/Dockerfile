@@ -40,8 +40,8 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/html
 
 # Copy the built Donetick core binary
-COPY --from=builder /donetick-core /app/donetick-core
-COPY --from=builder /app/core/config /app/config
+COPY --from=builder /donetick-core /donetick-core
+COPY --from=builder /app/core/config /config
 COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
 
 # Copy entrypoint script
