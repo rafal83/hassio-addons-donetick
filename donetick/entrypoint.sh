@@ -6,6 +6,8 @@
 # Set environment variables
 # export VITE_APP_API_URL=http://host.docker.internal:2021
 
+cd /app
+
 # Read telegram token from addon config
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 
@@ -13,11 +15,11 @@ DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 export DONETICK_TELEGRAM_TOKEN
 
 # Start donetick backend and save PID
-exec ./donetick-core &
+./donetick-core &
 PID1=$!
 
 # Start nginx in the foreground as the second process
-exec nginx -g 'daemon off;' &
+nginx -g 'daemon off;' &
 PID2=$!
 
 cleanup() {
