@@ -52,4 +52,4 @@ RUN chmod +x /app/entrypoint.sh
 EXPOSE 2021 80
 
 # Set the entrypoint script
-# CMD ["/app/entrypoint.sh"]
+CMD ["/app/entrypoint.sh"]

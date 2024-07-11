@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/with-contenv bashio
+
 
 # Envirment variables:
 # export VITE_APP_API_URL=http://host.docker.internal:2021
