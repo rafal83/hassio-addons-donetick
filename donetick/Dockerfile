@@ -62,4 +62,4 @@ EXPOSE 2021 80
 # CMD ["sh", "-c", "./donetick-core & serve -s build -l 7926"]
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
-CMD ["/app/entrypoint.sh"]
+# CMD ["/app/entrypoint.sh"]
