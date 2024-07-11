@@ -22,3 +22,7 @@ ports:
   2021/tcp: 2021
 webui: http://[HOST]:[PORT:8005]
 image: "ghcr.io/donetick/{arch}-hassio-addons"
+options:
+  telegram_token: ""
+schema:
+  telegram_token: "str?"
