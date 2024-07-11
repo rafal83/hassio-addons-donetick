@@ -9,12 +9,12 @@
 # Read telegram token from addon config
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 
-# # Export telegram token
-# export DONETICK_TELEGRAM_TOKEN
-
-# # Start donetick backend and save PID
-# ./donetick-core &
-# PID1=$!
+# Export telegram token
+export DONETICK_TELEGRAM_TOKEN
+cd /app
+# Start donetick backend and save PID
+./donetick-core &
+PID1=$!
 
 # Start nginx in the foreground as the second process
 nginx -g 'daemon off;' &
