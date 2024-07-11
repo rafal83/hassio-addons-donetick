@@ -1,65 +1,47 @@
-# Stage 1: Build the Go binary (Donetick/core)
-FROM golang:1.22-alpine3.18 AS builder
+ARG BUILD_FROM
+FROM $BUILD_FROM
+
+# Set working directory
 WORKDIR /app
-ENV CGO_ENABLED=1
-RUN apk --no-cache add gcc  musl-dev git musl-dev sqlite-dev 
-RUN apk add git
-RUN git clone https://github.com/Donetick/core
+
+# Install necessary packages
+RUN apk add --no-cache \
+    nginx \
+    git \
+    go \
+    musl-dev \
+    gcc \
+    sqlite-dev
+
+# Clone and build the Donetick core backend
+RUN git clone https://github.com/Donetick/core /app/core
 WORKDIR /app/core
 RUN go mod download
-RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w " -buildvcs=false  -o /donetick-core 
-#RUN CGO_ENABLED=1 GOOS=linux go build -ldflags='-s -w -extldflags "-static"' -buildvcs=false  -o /donetick-core 
+RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w" -buildvcs=false -o /app/donetick-core
 
-# Stage 2: Build the frontend (Donetick/frontend)
-FROM node:18-alpine AS frontend
+# Clone and build the Donetick frontend
 WORKDIR /app
-RUN apk add --no-cache git  # Install git in the Node.js image
-RUN git clone https://github.com/donetick/frontend
-WORKDIR /app/frontend     
-
-# Install dependencies and build the frontend
-# RUN npm ci
-
+RUN apk add --no-cache nodejs npm
+RUN git clone https://github.com/donetick/frontend /app/frontend
+WORKDIR /app/frontend
 RUN npm install
 ENV VITE_APP_API_URL=/api
-RUN  npm run build
+RUN npm run build
 
-
-# Stage 3: Final image with Go binary, built frontend, and http-server
-FROM nginx:alpine
-
-# install node and NPM:
-# RUN apt-get update && apt-get install -y nodejs npm
-
-# install nginx:
-# RUN apt-get install -y nginx
+# Setup nginx
 COPY nginx.conf /etc/nginx/nginx.conf
-
-WORKDIR /app
-
-# Install http server(serve) globally
-# RUN npm install -g serve
-
-# Create a new directory for the built app
-RUN mkdir build
-
-
-# Copy built frontend files to the nginx directory:
+RUN mkdir -p /usr/share/nginx/html
 COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
-# Copy the Go binary from the builder stage
-COPY --from=builder /donetick-core .
-# list copied files:
-COPY --from=builder /app/core/config ./config
 
+# Copy the built Donetick core binary
+COPY --from=builder /app/donetick-core /app
 
-RUN chmod +x ./donetick-core
-
-# Expose ports
-EXPOSE 2021 80
-
-# Start the Go binary and the frontend server concurrently
-# CMD ["sh", "-c", "cd /app & donetick-core & serve -s build -l 7926"]
-# CMD ["sh", "-c", "./donetick-core & serve -s build -l 7926"]
+# Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
+
+# Expose necessary ports
+EXPOSE 2021 80
+
+# Set the entrypoint script
 # CMD ["/app/entrypoint.sh"]
