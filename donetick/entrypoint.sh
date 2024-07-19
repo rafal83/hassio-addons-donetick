@@ -16,7 +16,7 @@ PID1=$!
 
 # Start the second process in the background(ngnix):
 bashio::log.info "Starting Nginx..."
-nginx &
+exec nginx -c /etc/nginx/nginx.conf < /dev/null &
 PID2=$!
 
 
@@ -25,7 +25,8 @@ PID2=$!
 
 cleanup() {
     echo "Terminating processes..."
-    kill $PID1 $PID2
+    kill $PID1
+    kill $PID2
 }
 
 # Trap SIGINT & SIGTERM to clean up before exiting
