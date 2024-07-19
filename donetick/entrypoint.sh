@@ -10,13 +10,13 @@ export DONETICK_TELEGRAM_TOKEN
 
 # Start donetick backend and save PID 
 bashio::log.info "Starting Donetick backend..."
-export GIN_MODE=release
-./donetick-core &
-PID1=$!
+
+# GIN_MODE=release ./donetick-core &
+# PID1=$!
 
 # Start the second process in the background(ngnix):
 bashio::log.info "Starting Nginx..."
-exec nginx -c /etc/nginx/nginx.conf < /dev/null &
+nginx -g 'daemon off;' &
 PID2=$!
 
 
