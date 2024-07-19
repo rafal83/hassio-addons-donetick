@@ -39,6 +39,10 @@ RUN apk add --no-cache \
 COPY nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /usr/share/nginx/html
 
+RUN mkdir -p /var/lib/nginx/logs && \
+    chown -R nginx:nginx /var/lib/nginx/logs && \
+    chmod -R 755 /var/lib/nginx/logs
+
 # Copy the built Donetick core binary
 COPY --from=builder /donetick-core /donetick-core
 COPY --from=builder /app/core/config /config
