@@ -9,12 +9,17 @@ DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 export DONETICK_TELEGRAM_TOKEN
 
 # Start donetick backend and save PID 
+bashio::log.info "Starting Donetick backend..."
+
 ./donetick-core &
 PID1=$!
 
 # Start the second process in the background(ngnix):
-nginx -g 'daemon off;' &
+bashio::log.info "Starting Nginx..."
+nginx &
 PID2=$!
+
+
 
 
 
