@@ -10,7 +10,7 @@ export DONETICK_TELEGRAM_TOKEN
 
 # Start donetick backend and save PID 
 bashio::log.info "Starting Donetick backend..."
-
+export GIN_MODE=release
 ./donetick-core &
 PID1=$!
 
