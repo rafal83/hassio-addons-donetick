@@ -1,18 +1,6 @@
 # ARG BUILD_FROM
 # FROM $BUILD_FROM
 
-FROM golang:1.22-alpine3.18 AS builder
-WORKDIR /app
-ENV CGO_ENABLED=1
-RUN apk --no-cache add gcc  musl-dev git musl-dev sqlite-dev 
-RUN apk add git
-RUN git clone https://github.com/Donetick/core
-WORKDIR /app/core
-RUN go mod download
-RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w " -buildvcs=false  -o /donetick-core 
-
-# ARG BUILD_FROM
-# FROM $BUILD_FROM
 
 
 FROM node:18-alpine AS frontend
@@ -25,31 +13,31 @@ WORKDIR /app/frontend
 # RUN npm ci
 
 RUN npm install
-ENV VITE_APP_API_URL=/api
+# ENV VITE_APP_API_URL=/api
 RUN  npm run build
 
+FROM golang:1.22-alpine3.18
+WORKDIR /app
 
+ENV CGO_ENABLED=1
+RUN apk --no-cache add gcc  musl-dev git musl-dev sqlite-dev 
+RUN apk add git
+RUN git clone https://github.com/Donetick/core
 
-FROM ghcr.io/home-assistant/amd64-base:3.15
+# copy the frontend generate code to core and embed it:
+COPY --from=frontend /app/frontend/dist /app/core/frontend/dist
 
-RUN apk add --no-cache \
-    nginx
+WORKDIR /app/core
+RUN go mod download
+RUN CGO_ENABLED=1 GOOS=linux go build -ldflags="-s -w " -buildvcs=false  -o ./donetick-core 
 
-# Setup nginx
-COPY nginx.conf /etc/nginx/nginx.conf
-RUN mkdir -p /usr/share/nginx/html
-
-# Copy the built Donetick core binary
-COPY --from=builder /donetick-core /app/donetick-core
-COPY --from=builder /app/core/config /app/config
-COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
 
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 # Expose necessary ports
-EXPOSE 2021 80
+EXPOSE 2021
 
 # Set the entrypoint script
-# CMD ["/app/entrypoint.sh"]
+CMD ["/app/entrypoint.sh"]
