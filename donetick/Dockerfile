@@ -1,7 +1,6 @@
-# ARG BUILD_FROM
-# FROM $BUILD_FROM
+ARG BUILD_FROM
+FROM $BUILD_FROM
 
-FROM alpine:3.14
 WORKDIR /app
 
 RUN apk --no-cache add gcc musl-dev git sqlite-dev curl 
