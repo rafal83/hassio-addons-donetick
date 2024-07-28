@@ -2,7 +2,7 @@
 
 
 # Envirment variables:
-# export VITE_APP_API_URL=http://host.docker.internal:2021
+export VITE_APP_API_URL=/
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 
 # # Export telegram token
