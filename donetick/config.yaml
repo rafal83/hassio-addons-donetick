@@ -1,8 +1,8 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
-name: (WIP)Donetick Addon
-version: "0.0.42"
-slug: (WIP)Donetick
-description: (WIP)Simplify Tasks & Chores, Together.
+name: Donetick Addon
+version: "0.0.43"
+slug: Donetick
+description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
 arch:
   # - armhf
