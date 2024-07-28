@@ -6,7 +6,7 @@ WORKDIR /app
 RUN apk --no-cache add gcc musl-dev git sqlite-dev curl 
 RUN mkdir -p /app/core
 # download the binary from donetick releases:
-RUN curl -L https://github.com/Donetick/core/releases/download/v0.0.9/core_Linux_x86_64.tar.gz | tar -xz -C /app/core 
+RUN curl -L https://github.com/Donetick/core/releases/download/v0.0.10/core_Linux_x86_64.tar.gz | tar -xz -C /app/core 
 
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
