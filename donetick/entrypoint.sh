@@ -2,7 +2,7 @@
 
 
 # Envirment variables:
-export VITE_APP_API_URL=/
+export VITE_APP_API_URL="AUTO"
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
 
 # # Export telegram token
