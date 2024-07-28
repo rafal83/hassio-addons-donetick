@@ -13,10 +13,12 @@ bashio::log.info "Starting Donetick backend..."
 
 # Envirment variables:
 # export VITE_APP_API_URL=http://host.docker.internal:2021
+
 cd /app/core
 # Start donetick backend and save PID 
 export DT_ENV="selfhosted"
 
+ls -lR /app/
 ./donetick-core &
 PID1=$!
 
