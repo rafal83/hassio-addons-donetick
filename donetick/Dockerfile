@@ -6,7 +6,9 @@ WORKDIR /app
 RUN apk --no-cache add gcc musl-dev git sqlite-dev curl
 RUN mkdir -p /app/core
 # download the binary from donetick releases:
-    RUN curl -L https://github.com/Donetick/core/releases/download/v0.0.12/core_Linux_x86_64.tar.gz | tar -xz -C /app/core
+RUN latest_release=$(curl --silent "https://api.github.com/repos/donetick/donetick/releases/latest" | grep -oP '"tag_name": "\K(.*)(?=")') && \
+curl -L "https://github.com/donetick/donetick/releases/download/${latest_release}/donetick_Linux_x86_64.tar.gz" | tar -xz -C /app/core
+
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
