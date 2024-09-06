@@ -19,7 +19,7 @@ cd /app/donetick
 export DT_ENV="selfhosted"
 
 ls -lR /app/
-./core &
+./donetick &
 PID1=$!
 
 

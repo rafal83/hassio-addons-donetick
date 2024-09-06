@@ -7,7 +7,7 @@ RUN apk --no-cache add gcc musl-dev git sqlite-dev curl jq
 RUN mkdir -p /app/core
 # download the binary from donetick releases:
 RUN latest_release=$(curl --silent "https://api.github.com/repos/donetick/donetick/releases/latest" | jq -r .tag_name) && \
-curl -fL "https://github.com/donetick/donetick/releases/download/${latest_release}/donetick_Linux_x86_64.tar.gz" | tar -xz -C /app/core
+curl -fL "https://github.com/donetick/donetick/releases/download/${latest_release}/donetick_Linux_x86_64.tar.gz" | tar -xz -C /app/donetick
 
 # Copy entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
