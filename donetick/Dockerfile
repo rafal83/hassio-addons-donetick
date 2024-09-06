@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 WORKDIR /app
 
-RUN apk --no-cache add gcc musl-dev git sqlite-dev curl 
+RUN apk --no-cache add gcc musl-dev git sqlite-dev curl jq 
 RUN mkdir -p /app/core
 # download the binary from donetick releases:
 RUN latest_release=$(curl --silent "https://api.github.com/repos/donetick/donetick/releases/latest" | jq -r '.tag_name') && \
