@@ -6,7 +6,6 @@ description: Simplify Tasks & Chores, Together.
 url: "https://github.com/Donetick/hassio-addons/tree/main/donetick"
 arch:
   - armv7
-  - armv6
   - aarch64
   - amd64
 init: false
