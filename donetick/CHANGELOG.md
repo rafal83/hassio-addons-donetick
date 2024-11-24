@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.16:
+Add Support Label across the tasks
+Add Label Manager
+
 ## 1.0.15:
 Support Password reset
 Add Priotity support for tasks
