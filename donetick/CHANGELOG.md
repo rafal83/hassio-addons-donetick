@@ -1,4 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.0.18
+- Improve UI and support sorting by date
+- Support Pushover
+- fix bugs when attempt to send notification
+- Support to disable login
+
 ## 1.0.17:
 Add support for tasks api to work with homeassistant integration
 

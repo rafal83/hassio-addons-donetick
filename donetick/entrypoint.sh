@@ -4,9 +4,14 @@
 # Envirment variables:
 export VITE_APP_API_URL="AUTO"
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
+DONETICK_PUSHOVER_TOKEN=$(bashio::config 'pushover_token')
+DONETICK_DISABLE_SIGNUP=$(bashio::config 'disable_signup')
+
 
 # # Export telegram token
 export DONETICK_TELEGRAM_TOKEN
+export DONETICK_PUSHOVER_TOKEN
+export DONETICK_DISABLE_SIGNUP
 
 # Start donetick backend and save PID 
 bashio::log.info "Starting Donetick backend..."

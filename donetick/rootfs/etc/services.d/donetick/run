@@ -8,9 +8,13 @@
 
 # Read telegram token from addon config
 DONETICK_TELEGRAM_TOKEN=$(bashio::config 'telegram_token')
+DONETICK_PUSHOVER_TOKEN=$(bashio::config 'pushover_token')
+DONETICK_DISABLE_SIGNUP=$(bashio::config 'disable_signup')
 
 # Export telegram token
 export DONETICK_TELEGRAM_TOKEN
+export DONETICK_PUSHOVER_TOKEN
+export DONETICK_DISABLE_SIGNUP
 cd /app
 # Start donetick backend and save PID
 ./donetick-core &
