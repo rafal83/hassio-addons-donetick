@@ -1,4 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.0.19
+- Support Loading Archived Tasks
+- fix issue in assignee different users for task
 ## 1.0.18
 - Improve UI and support sorting by date
 - Support Pushover
