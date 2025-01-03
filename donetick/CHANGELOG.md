@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+
+## 1.0.20
+- Add Support for Points
+- Fix Issue with NFC tag 
 ## 1.0.19
 - Support Loading Archived Tasks
 - fix issue in assignee different users for task
