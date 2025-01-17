@@ -1,25 +1,20 @@
-# WIP Donetick Home Assistant add-on repository
+# Donetick Add-on for Home Assistant
 
-This repository can be used as a "blueprint" for add-on development to help you get started.
+This is the official add-on for [Donetick](https://github.com/donetick/donetick) with Home Assistant. Donetick is an open-source app for managing tasks, chores, and automations with advanced scheduling and notification features.
 
-Add-on documentation: <https://developers.home-assistant.io/docs/add-ons>
+![Screenshot](donetick/screenshot.png)
+---
 
-[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fdonetick%2Fhassio-addons)
+## Installation Instructions
 
-## Add-ons
+### Step 1: Add the Repository to Home Assistant
 
-This repository contains the following add-ons
-
-### [Example add-on](./example)
-
-![Supports aarch64 Architecture][aarch64-shield]
-![Supports amd64 Architecture][amd64-shield]
-![Supports armhf Architecture][armhf-shield]
-![Supports armv7 Architecture][armv7-shield]
-![Supports i386 Architecture][i386-shield]
-
-_Example add-on to use as a blueprint for new add-ons._
-
+1. Open **Home Assistant** in your web browser.
+2. Go to **Settings** > **Add-ons** > **Add-on Store**.
+3. Click the three-dot menu in the top-right corner and select **Repositories**.
+4. Enter the URL of this repository:
+`https://github.com/Donetick/hassio-addons`
+5. Click **Add** 
 <!--
 
 Notes to developers after forking or using the github template feature:
