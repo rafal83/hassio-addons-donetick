@@ -1,4 +1,6 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.0.29
+Fix issue while redeeming points 
 ## 1.0.28
 
 - **Improved Main View for Large Screens (Tablet, Desktop)**:  
