@@ -1,5 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 ## 1.0.30
+Timeout increased to 10s, build validation added, and notification ID fix implemented.
+Filtering by priority/label enabled and detail view design updated.
+Schedule logic simplified and Things UI refreshed.
+
+## 1.0.30
 fix bug where Only admin point redeemable
 ## 1.0.29
 Fix issue while redeeming points 
