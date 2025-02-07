@@ -1,4 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.0.32`
+* Add support for SSO with OIDC ( test with Authentik)
+* fix issue with completing overdue chores
+
+
 ## 1.0.30
 Timeout increased to 10s, build validation added, and notification ID fix implemented.
 Filtering by priority/label enabled and detail view design updated.
