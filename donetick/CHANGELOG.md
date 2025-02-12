@@ -1,5 +1,14 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 1.0.32`
+## 1.0.33
+Add Support for Webhook!
+Notification and task not generate event can be consume via webhooks
+Add Modal to Edit things
+Add a custom 404 page
+Fix Bug in Update things with Type strings
+(Release Note)[https://github.com/donetick/donetick/releases/tag/v0.0.33]
+
+
+## 1.0.32
 * Add support for SSO with OIDC ( test with Authentik)
 * fix issue with completing overdue chores
 
