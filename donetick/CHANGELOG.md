@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.34
+Update Error Page
+Fix issue where settings page not loading 
+
 ## 1.0.33
 Add Support for Webhook!
 Notification and task not generate event can be consume via webhooks
