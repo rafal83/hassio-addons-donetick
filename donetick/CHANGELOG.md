@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.35
+Support completing task from eAPI (i.e. Home Assistant integration)
+Fix issue with the Notiitcation 
+
 ## 1.1.34
 Update Error Page
 Fix issue where settings page not loading 
