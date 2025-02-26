@@ -1,4 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.36:
+- **Subtasks**: Added support for subtasks. Each task can now have steps or subtasks. These can be completed and tracked separately. When a recurrent task is completed, its subtasks are reset.
+- **Group By and Section Persistence**: Persisted the "group by" setting in the main view. If you select "group by due date," "priority," etc., this setting will be preserved. When you return to donetick from the same device, you will see the same grouping. Additionally, the collapsed/expanded state of sections is now persisted.
+- **Rolling Chore Due Date Logic**: Added logic to ensure the next due date for rolling chores is the later of the completed date or the originally calculated next due date, particularly for day-of-the-month scheduling.
 ## 1.1.35
 Support completing task from eAPI (i.e. Home Assistant integration)
 Fix issue with the Notiitcation 
