@@ -1,4 +1,10 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.37:
+- **Nest Sub-tasks**: Added support for nested sub-tasks.
+- **Webhook Notification Target**: Added support for webhook as the only notification target.
+- **Task Filtering by Assignee**: Support filtering tasks by assignee and storing it as the default view.
+- **User Preference for Default Group By**: Save user preference for default group by for task view.
+
 ## 1.1.36:
 - **Subtasks**: Added support for subtasks. Each task can now have steps or subtasks. These can be completed and tracked separately. When a recurrent task is completed, its subtasks are reset.
 - **Group By and Section Persistence**: Persisted the "group by" setting in the main view. If you select "group by due date," "priority," etc., this setting will be preserved. When you return to donetick from the same device, you will see the same grouping. Additionally, the collapsed/expanded state of sections is now persisted.
