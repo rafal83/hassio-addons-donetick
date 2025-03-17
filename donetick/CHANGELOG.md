@@ -1,5 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 ## 1.1.37:
+- Fix bug that disabled notifications when task created by task in sentence
+## 1.1.37:
 - **Nest Sub-tasks**: Added support for nested sub-tasks.
 - **Webhook Notification Target**: Added support for webhook as the only notification target.
 - **Task Filtering by Assignee**: Support filtering tasks by assignee and storing it as the default view.
