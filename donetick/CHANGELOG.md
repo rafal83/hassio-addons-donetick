@@ -1,5 +1,5 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 1.1.37:
+## 1.1.38:
 - Fix bug that disabled notifications when task created by task in sentence
 ## 1.1.37:
 - **Nest Sub-tasks**: Added support for nested sub-tasks.
