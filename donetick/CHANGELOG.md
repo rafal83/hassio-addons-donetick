@@ -1,4 +1,12 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.43:
+- **Task in a Sentence**: Advanced task input parsing with dynamic highlighting for Priority, Due Date, Frequency, and Labels.
+- **Initial Offline Mode**: View and manage cached tasks offline; some actions queue for later execution.
+- Fix hardcoded email address by @Alone2 in [#149](https://github.com/donetick/donetick/pull/149).
+- Include CircleID in notifications by @glombek in [#174](https://github.com/donetick/donetick/pull/174).
+- Correct unarchive message by @stefan-matic in [#181](https://github.com/donetick/donetick/pull/181).
+- New Contributors: @Alone2, @glombek, @stefan-matic.
+
 ## 1.1.38:
 - Fix bug that disabled notifications when task created by task in sentence
 ## 1.1.37:
