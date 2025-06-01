@@ -1,4 +1,15 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.44:
+- **Dashboard Redesign**: Dashboard is now optimized for table/mount use. Managers/admins can complete tasks for others, with identity selection in the top-right card.
+- **UI Enhancements**: Calendar updated to match Donetick design. Added "Recent Changes" card for last 7 days' activity. Compact mode introduced for smaller cards and improved space usage.
+- **Task Management**: Task descriptions now support Markdown rich text editing and image uploads (if storage is configured).
+- **Storage**: File uploads supported via S3-compatible storage.
+- **Multi-Factor Authentication (MFA)**: Endpoints for MFA setup, confirmation, disabling, and verification. Backup code regeneration and improved expiration date formatting.
+- **Circle Management**: Added ChangeMemberRole endpoint with role validation. GetCircleUsers now includes user images.
+- **Build/Versioning**: Build and configuration now include versioning info.
+- **Fixes**: OIDC authentication issues resolved and other minor fixes.
+
+
 ## 1.1.43:
 - **Task in a Sentence**: Advanced task input parsing with dynamic highlighting for Priority, Due Date, Frequency, and Labels.
 - **Initial Offline Mode**: View and manage cached tasks offline; some actions queue for later execution.
