@@ -1,4 +1,12 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.50:
+- **Quick Task Actions**: Swipe on tasks to start, pause, edit, or delete for faster management on mobile.
+- **Navigation Bar Update**: Improved padding, sticky positioning, and responsive layout for better mobile experience.
+- **UI Enhancements**: Refined design for Things, Labels, and History to match Donetick’s overall look.
+- **Keyboard Shortcuts**: Added shortcuts for faster task creation on desktop, with hints shown on Command/Ctrl.
+- **Timer Management**: Start, pause, and track time spent on tasks across devices, including break tracking.
+- **UserPoints & Activities**: Enhanced filtering, layout, and new graphs for better insights.
+
 ## 1.1.45:
 - **Dashboard Redesign**: Dashboard is now optimized for table/mount use. Managers/admins can complete tasks for others, with identity selection in the top-right card.
 - **UI Enhancements**: Calendar updated to match Donetick design. Added "Recent Changes" card for last 7 days' activity. Compact mode introduced for smaller cards and improved space usage.
