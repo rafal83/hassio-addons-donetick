@@ -1,5 +1,5 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
-## 1.1.50:
+## 1.1.51:
 - **Quick Task Actions**: Swipe on tasks to start, pause, edit, or delete for faster management on mobile.
 - **Navigation Bar Update**: Improved padding, sticky positioning, and responsive layout for better mobile experience.
 - **UI Enhancements**: Refined design for Things, Labels, and History to match Donetick’s overall look.
