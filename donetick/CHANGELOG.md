@@ -1,4 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.52:
+- Fixed issue that was preventing tasks from being skipped [#259](https://github.com/donetick/donetick/pull/259)
+- Fixed OCID login bug
+- Fixed bug where due dates were automatically updated when saving tasks [#263](https://github.com/donetick/donetick/pull/263), [#260](https://github.com/donetick/donetick/pull/260)
+- Fixed error when loading Things with no history
 ## 1.1.51:
 - **Quick Task Actions**: Swipe on tasks to start, pause, edit, or delete for faster management on mobile.
 - **Navigation Bar Update**: Improved padding, sticky positioning, and responsive layout for better mobile experience.
