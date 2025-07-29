@@ -1,4 +1,14 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
+## 1.1.53:
+- **Home Assistant Integration Update**: Added support for the latest Donetick integration, enabling full control of Things and management of Tasks (add, edit, delete) directly from Home Assistant.
+- **Individual To-Do Lists**: Each user now has a personal to-do list, in addition to a master list for the entire circle.
+- Various bug fixes and stability improvements.
+
+> [!NOTE]
+> If you have previously installed the Donetick integration, you might need to remove it and re-add it to ensure compatibility with the latest version. 
+> you can check the [Donetick Integration](https://github.com/donetick/donetick-hass-integration) for more details on how to set it up.
+
+
 ## 1.1.52:
 - Fixed issue that was preventing tasks from being skipped [#259](https://github.com/donetick/donetick/pull/259)
 - Fixed OCID login bug
